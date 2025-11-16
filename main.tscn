@@ -1,0 +1,207 @@
+[gd_scene load_steps=22 format=3 uid="uid://cfplohjue56ok"]
+
+[ext_resource type="Script" uid="uid://cfr3nqgh27tni" path="res://main.gd" id="1_7mycd"]
+[ext_resource type="Script" uid="uid://36hebpoj0qv" path="res://player.gd" id="1_ig7tw"]
+[ext_resource type="Environment" uid="uid://4fup5ecwbpow" path="res://calm_environment.tres" id="1_lquwl"]
+[ext_resource type="Texture2D" uid="uid://bem2cxka2wily" path="res://icon.svg" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://cuiklouiuenfc" path="res://checkered_texture.svg" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://syutcenvvjck" path="res://enemy.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://cmmuyitm65xrj" path="res://blind_mode_trigger.gd" id="7_272bh"]
+[ext_resource type="Script" uid="uid://bp0excfgju301" path="res://mode_label.gd" id="8_kek77"]
+[ext_resource type="Script" uid="uid://bp2jkxdjvte3f" path="res://calm_mode_trigger.gd" id="10_4c57u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
+albedo_texture = ExtResource("3_h2yge")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
+albedo_texture = ExtResource("3_h2yge")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1bvp3"]
+material = SubResource("StandardMaterial3D_h2yge")
+size = Vector3(100, 1, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_h2yge"]
+data = PackedVector3Array(-50, 0.5, 0.5, 50, 0.5, 0.5, -50, -0.5, 0.5, 50, 0.5, 0.5, 50, -0.5, 0.5, -50, -0.5, 0.5, 50, 0.5, -0.5, -50, 0.5, -0.5, 50, -0.5, -0.5, -50, 0.5, -0.5, -50, -0.5, -0.5, 50, -0.5, -0.5, 50, 0.5, 0.5, 50, 0.5, -0.5, 50, -0.5, 0.5, 50, 0.5, -0.5, 50, -0.5, -0.5, 50, -0.5, 0.5, -50, 0.5, -0.5, -50, 0.5, 0.5, -50, -0.5, -0.5, -50, 0.5, 0.5, -50, -0.5, 0.5, -50, -0.5, -0.5, 50, 0.5, 0.5, -50, 0.5, 0.5, 50, 0.5, -0.5, -50, 0.5, 0.5, -50, 0.5, -0.5, 50, 0.5, -0.5, -50, -0.5, 0.5, 50, -0.5, 0.5, -50, -0.5, -0.5, 50, -0.5, 0.5, 50, -0.5, -0.5, -50, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
+albedo_texture = ExtResource("3_h2yge")
+
+[sub_resource type="BoxMesh" id="BoxMesh_h2yge"]
+size = Vector3(20, 0.5, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1bvp3"]
+data = PackedVector3Array(-10, 0.25, 0.5, 10, 0.25, 0.5, -10, -0.25, 0.5, 10, 0.25, 0.5, 10, -0.25, 0.5, -10, -0.25, 0.5, 10, 0.25, -0.5, -10, 0.25, -0.5, 10, -0.25, -0.5, -10, 0.25, -0.5, -10, -0.25, -0.5, 10, -0.25, -0.5, 10, 0.25, 0.5, 10, 0.25, -0.5, 10, -0.25, 0.5, 10, 0.25, -0.5, 10, -0.25, -0.5, 10, -0.25, 0.5, -10, 0.25, -0.5, -10, 0.25, 0.5, -10, -0.25, -0.5, -10, 0.25, 0.5, -10, -0.25, 0.5, -10, -0.25, -0.5, 10, 0.25, 0.5, -10, 0.25, 0.5, 10, 0.25, -0.5, -10, 0.25, 0.5, -10, 0.25, -0.5, 10, 0.25, -0.5, -10, -0.25, 0.5, 10, -0.25, 0.5, -10, -0.25, -0.5, 10, -0.25, 0.5, 10, -0.25, -0.5, -10, -0.25, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_texture = ExtResource("3_h2yge")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mycd"]
+size = Vector3(2, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kek77"]
+size = Vector3(1, 10, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4c57u"]
+data = PackedVector3Array(-0.5, 5, 0.5, 0.5, 5, 0.5, -0.5, -5, 0.5, 0.5, 5, 0.5, 0.5, -5, 0.5, -0.5, -5, 0.5, 0.5, 5, -0.5, -0.5, 5, -0.5, 0.5, -5, -0.5, -0.5, 5, -0.5, -0.5, -5, -0.5, 0.5, -5, -0.5, 0.5, 5, 0.5, 0.5, 5, -0.5, 0.5, -5, 0.5, 0.5, 5, -0.5, 0.5, -5, -0.5, 0.5, -5, 0.5, -0.5, 5, -0.5, -0.5, 5, 0.5, -0.5, -5, -0.5, -0.5, 5, 0.5, -0.5, -5, 0.5, -0.5, -5, -0.5, 0.5, 5, 0.5, -0.5, 5, 0.5, 0.5, 5, -0.5, -0.5, 5, 0.5, -0.5, 5, -0.5, 0.5, 5, -0.5, -0.5, -5, 0.5, 0.5, -5, 0.5, -0.5, -5, -0.5, 0.5, -5, 0.5, 0.5, -5, -0.5, -0.5, -5, -0.5)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_7mycd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ModeLabel" type="Label" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 24.0
+offset_right = 20.0
+offset_bottom = 47.0
+grow_horizontal = 2
+text = "CALM MODE"
+script = ExtResource("8_kek77")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." groups=["world_evironment"]]
+unique_name_in_owner = true
+environment = ExtResource("1_lquwl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+sky_mode = 2
+
+[node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.779141, 0.1358794)
+script = ExtResource("1_ig7tw")
+
+[node name="Sprite3D" type="Sprite3D" parent="Player"]
+shaded = true
+texture = ExtResource("2_0xm2m")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.9845796, 0.17493714, 0, -0.17493714, 0.9845796, 0, 3.6869693, 6.849184)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.020665407, 0)
+shape = SubResource("BoxShape3D_1bvp3")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.40241432)
+
+[node name="PlayerLabel" type="Label3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86797667, 0)
+text = "Player"
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48346543, 0)
+material_override = SubResource("StandardMaterial3D_lquwl")
+mesh = SubResource("BoxMesh_1bvp3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48346543, 0)
+shape = SubResource("ConcavePolygonShape3D_h2yge")
+
+[node name="Platform" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.3028355, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.343371, -2.4297378, 0)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("BoxMesh_h2yge")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.343371, -2.4297378, 0)
+shape = SubResource("ConcavePolygonShape3D_1bvp3")
+
+[node name="Platform2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.855095, 4.3028355, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.343371, -2.4297378, 0)
+material_override = SubResource("StandardMaterial3D_1bvp3")
+mesh = SubResource("BoxMesh_h2yge")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.343371, -2.4297378, 0)
+shape = SubResource("ConcavePolygonShape3D_1bvp3")
+
+[node name="Enemy" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.057055, 0.6991472, 0)
+
+[node name="Enemy2" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.378078, 0.6991472, 0)
+
+[node name="BlindModeTrigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.061754, 2.7161138, 0)
+script = ExtResource("7_272bh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BlindModeTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41919565, 0)
+shape = SubResource("BoxShape3D_7mycd")
+
+[node name="Sprite3D" type="Sprite3D" parent="BlindModeTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6770272)
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("2_0xm2m")
+
+[node name="Label3D" type="Label3D" parent="BlindModeTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9115019, 0)
+text = "Blind Mode Trigger"
+
+[node name="CalmModeTrigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.45618, 2.7161138, 0)
+script = ExtResource("10_4c57u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CalmModeTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41919565, 0)
+shape = SubResource("BoxShape3D_7mycd")
+
+[node name="Sprite3D" type="Sprite3D" parent="CalmModeTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6770272)
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("2_0xm2m")
+
+[node name="Label3D" type="Label3D" parent="CalmModeTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9115019, 0)
+text = "Blind Mode Trigger"
+
+[node name="Wall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.388527, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8810205, 0)
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8810205, 0)
+shape = SubResource("ConcavePolygonShape3D_4c57u")
+
+[node name="Wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.493904, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8810205, 0)
+mesh = SubResource("BoxMesh_kek77")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8810205, 0)
+shape = SubResource("ConcavePolygonShape3D_4c57u")
+
+[connection signal="body_entered" from="BlindModeTrigger" to="BlindModeTrigger" method="_on_body_entered"]
+[connection signal="body_entered" from="CalmModeTrigger" to="CalmModeTrigger" method="_on_body_entered"]

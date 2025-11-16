@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://syutcenvvjck"]
+
+[ext_resource type="Script" uid="uid://0t2k1c74wvhu" path="res://enemy.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://bem2cxka2wily" path="res://icon.svg" id="2_qi2p4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lquwl"]
+radius = 0.45288086
+height = 0.9057617
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lquwl"]
+size = Vector3(4.9776, 1.0639038, 1)
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_4gyqm")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.3669896, 0)
+modulate = Color(1, 0, 0, 1)
+shaded = true
+texture = ExtResource("2_qi2p4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25609827, 0)
+shape = SubResource("CapsuleShape3D_lquwl")
+
+[node name="PlayerDetection" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030853271, -0.18027973, 0)
+shape = SubResource("BoxShape3D_lquwl")
+
+[node name="StateLabel" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26403904, 0)
+text = "STATE"
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
